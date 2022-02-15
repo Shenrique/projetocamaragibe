@@ -41,7 +41,6 @@ public class JasperController {
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
         response.setHeader("Content-disposition", "inline; filename="+ nome +".pdf");
         response.getOutputStream().write(bytes);
-
     }
 
     @GetMapping("/relatorioGeral")
