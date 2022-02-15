@@ -12,6 +12,11 @@
       <option name="url" value="https://repository.audora.io/repository/maven-public/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="jaspersoft-third-party" />
+      <option name="name" value="jaspersoft-third-party" />
+      <option name="url" value="https://repository.audora.io/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="aws-snapshot" />
       <option name="name" value="AWS Snapshot Repository" />
       <option name="url" value="https://repository.audora.io/repository/maven-public/" />
