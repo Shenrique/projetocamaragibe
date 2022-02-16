@@ -8,6 +8,13 @@ body {
   margin: 0;
 }
 
+#imagemBackground{
+    width: 100vw;
+    height: 100vh;
+    background: url('../images/filhoteanilha.png');
+    background-size: cover;
+}
+
 #DivTituloPagina{
     margin-left: 400px;
 
