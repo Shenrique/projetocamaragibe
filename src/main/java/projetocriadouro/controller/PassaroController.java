@@ -48,6 +48,16 @@ public class PassaroController {
         return "cadastro/cadastrofilhote";
     }
 
+    @GetMapping("/exibirMachos")
+    public String paginaExibirMachos(){
+        return "cadastro/exibirMachos";
+    }
+
+    @GetMapping("/exibirFemeas")
+    public String paginaExibirFemeas(){
+        return "cadastro/exibirFemeas";
+    }
+
     @ModelAttribute("todos")
     public List<Passaro> listarTodos(){
         return passaroRepository.findBySexo("Macho");

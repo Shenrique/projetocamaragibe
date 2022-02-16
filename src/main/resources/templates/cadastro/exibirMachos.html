@@ -56,7 +56,7 @@
         <div class="container2-fluid">
             <table>
                 <div>
-                    <form id="formcadastro" action="pesquisarpassaro" method="POST">
+                   <!--<form id="formcadastro" action="pesquisarpassaro" method="POST">
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="pesGalador">Consultar Árvore Macho</label>
@@ -79,27 +79,7 @@
                             <br>
                             <input type="submit" value="Buscar" class="btn btn-secondary" width="100">
                     </form>
-                    <div id="consultando" th:each="passaro: ${passaroComboGalador}">
-                        <br>
-                            <Label>Macho:</Label>
-                        <div>
-                            <label>Data Nascimento:</label>
-                            <label id="datanascimento" th:text="${passaro.data_nascimento}"></label>
-                            <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"></script>
-                            <script>
-                            new Cleave('#datanascimento', {
-                                date: true,
-                                delimiter: '/',
-                                datePattern: ['d', 'm', 'Y']
-                            });
-                        </script>
-                        </div>
-                        <div>
-                            <label>Anilha:</label>
-                            <label th:text="${passaro.anilha}"></label>
-                        </div>
-                    </div>
-                    <div id="consultando2" th:each="passaro: ${passaroComboMatriz}">
+                    <div id="consultando2" th:each="passaro: ${todos}">
                         <br>
                             <label>Femea:</label>
                         <div>
@@ -111,9 +91,9 @@
                             <label th:text="${passaro.anilha}"></label>
                         </div>
                     </div>
-                    </div>
+                    </div>-->
                     <br>
-                    <div id="consulta" style="width:100%; overflow: hidden;" th:each="passaro: ${passaroComboGalador}">
+                    <div id="consulta" style="width:100%; overflow: hidden;" th:each="passaro: ${todos}">
                         <style type="text/css">
                             *,
                             *:before,
@@ -350,245 +330,10 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                     </div>
-                    <div id="consulta2" style="width:100%; overflow: hidden;" th:each="passaro: ${passaroComboMatriz}">
-                        <style type="text/css">
-                        *,
-                        *:before,
-                        *:after {
-                            -webkit-box-sizing: border-box;
-                            -moz-box-sizing: border-box;
-                            box-sizing: border-box;
-                        }
-
-                        #wrapper2 {
-                            margin-left: 400px;
-                            color: #000;
-                            font: 18px Verdana, sans-serif;
-                            background: #FFF;
-                            background-color: inherit;
-                            -webkit-user-select: none;
-                            -moz-user-select: none;
-                            -ms-user-select: none;
-                            user-select: none;
-                            position: relative;
-                            margin-top: 2em;
-                        }
-
-                        #wrapper2 .branch {
-                            position: relative;
-                            left: 30px;
-                            margin-left: 166px;
-                        }
-
-                        #wrapper2 .branch:before {
-                            content: "";
-                            border-top: 2px solid #000;
-                            position: absolute;
-                            left: -30px;
-                            top: 50%;
-                        }
-
-                        #wrapper2 .entry {
-                            position: relative;
-                            top: 0px;
-                            min-height: 30px;
-                        }
-
-                        #wrapper2 .entry:before {
-                            content: "";
-                            height: 100%;
-                            border-left: 2px solid #000;
-                            position: absolute;
-                            left: -10px;
-
-                        }
-
-                       #wrapper2 .entry:after {
-                            content: "";
-                            width: 10px;
-                            border-top: 2px solid #000;
-                            position: absolute;
-                            left: -10px;
-                            top: 50%;
-                            margin-top: 1px;
-                        }
-
-                       #wrapper2 .entry:first-child:before {
-                            width: 10px;
-                            height: 50%;
-                            top: 50%;
-                            margin-top: 2px;
-                            border-radius: 10px 0 0 0;
-                        }
-
-                        #wrapper2 .entry:first-child:after {
-                            height: 10px;
-                            border-radius: 10px 0 0 0;
-                        }
-
-                        #wrapper2 .entry:last-child:before {
-                            width: 10px;
-                            height: 50%;
-                            border-radius: 0 0 0 10px;
-                        }
-
-                       #wrapper2 .entry:last-child:after {
-                            height: 10px;
-                            border-top: none;
-                            border-bottom: 2px solid #000;
-                            border-radius: 0 0 0 10px;
-                            margin-top: -9px;
-                        }
-
-                       #wrapper2 .entry.sole:before {
-                            display: none;
-                        }
-
-                       #wrapper2 .entry.sole:after {
-                            width: 50px;
-                            height: 0;
-                            margin-top: 1px;
-                            border-radius: 0;
-                        }
-
-                       #wrapper2 .label {
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            min-width: 188px;
-                            max-width: 188px;
-                            line-height: 12px;
-                            text-align: center;
-                            border: 2px solid #000;
-                            border-radius: 5px;
-                            position: absolute;
-                            left: 0;
-                            top: 50%;
-                            margin-top: -13.5px;
-                            font-size: 0.75em;
-                            min-height: 28.6px;
-                        }
-
-                       #wrapper2 .label.fem {
-                            color: #000000;
-                            font-weight: bold;
-                       }
-
-                       #wrapper2 .label.masc {
-                            color: #ffffff;
-                            font-weight: bold;
-
-                       }
-
-                       #wrapper2 .fem {
-                            background-color: #FFE403;
-                        }
-
-                       #wrapper2 .masc {
-                            background-color: #363636;
-                        }
-
-                       a:link {
-                            text-decoration:none;
-                            color: inherit;
-                        }
-                    </style>
-
-                        <div id="wrapper2"><spam name="nome" class="label fem" th:text ="${passaro.nome}"></spam>
-                            <div class="branch">
-                                <div class="entry">
-                                    <spam name="macho1" class="label masc" th:text ="${passaro.macho1}"></spam><div class="branch">
-                                    <div class="entry">
-                                        <spam name="macho21" class="label masc" th:text ="${passaro.macho21}"></spam><div class="branch">
-                                        <div class="entry">
-                                            <spam name="macho31" class="label masc" th:text ="${passaro.macho31}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <span name="macho41" class="label masc" th:text ="${passaro.macho41}"> </span></div>
-                                            <div class="entry">
-                                                <spam name="femea41" class="label fem" th:text ="${passaro.femea41}"></spam></div>
-                                        </div>
-                                        </div>
-                                        <div class="entry">
-                                            <spam name="femea31" class="label fem" th:text ="${passaro.femea31}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <spam name="macho42" class="label masc" th:text ="${passaro.macho42}"></spam></div>
-                                            <div class="entry">
-                                                <spam name="femea42" class="label fem" th:text ="${passaro.femea42}"></spam></div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="entry">
-                                        <spam name="femea21" class="label fem" th:text ="${passaro.femea21}"></spam><div class="branch">
-                                        <div class="entry">
-                                            <spam name="macho32" class="label masc" th:text ="${passaro.macho32}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <spam name="macho43" class="label masc" th:text ="${passaro.macho43}"></spam></div>
-                                            <div class="entry">
-                                                <spam name="femea43" class="label fem" th:text ="${passaro.femea43}"></spam></div>
-                                        </div>
-                                        </div>
-                                        <div class="entry">
-                                            <spam name="femea32" class="label fem" th:text ="${passaro.femea32}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <spam name="macho44" class="label masc" th:text ="${passaro.macho44}"></spam></div>
-                                            <div class="entry">
-                                                <spam name="femea44" class="label fem" th:text ="${passaro.femea44}"></spam></div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="entry">
-                                    <spam name="femea1" class="label fem" th:text ="${passaro.femea1}"></spam><div class="branch">
-                                    <div class="entry">
-                                        <spam name="macho22" class="label masc" th:text ="${passaro.macho22}"></spam><div class="branch">
-                                        <div class="entry">
-                                            <spam name="macho33" class="label masc" th:text ="${passaro.macho33}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <spam name="macho45" class="label masc" th:text ="${passaro.macho45}"></spam></div>
-                                            <div class="entry">
-                                                <spam name="femea45" class="label fem" th:text ="${passaro.femea45}"></spam></div>
-                                        </div>
-                                        </div>
-                                        <div class="entry">
-                                            <spam name="femea33" class="label fem" th:text ="${passaro.femea33}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <spam name="macho46" class="label masc" th:text ="${passaro.macho46}"></spam></div>
-                                            <div class="entry">
-                                                <spam name="femea46" class="label fem" th:text ="${passaro.femea46}"></spam></div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                    <div class="entry">
-                                        <spam name="femea22" class="label fem" th:text ="${passaro.femea22}"></spam><div class="branch">
-                                        <div class="entry">
-                                            <spam name="macho34" class="label masc" th:text ="${passaro.macho34}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <spam name="macho47" class="label masc" th:text ="${passaro.macho47}"></spam></div>
-                                            <div class="entry">
-                                                <spam name="femea47" class="label fem" th:text ="${passaro.femea47}"></spam></div>
-                                        </div>
-                                        </div>
-                                        <div class="entry">
-                                            <spam name="femea34" class="label fem" th:text ="${passaro.femea34}"></spam><div class="branch">
-                                            <div class="entry">
-                                                <spam name="macho48" class="label masc" th:text ="${passaro.macho48}"></spam></div>
-                                            <div class="entry">
-                                                <spam name="femea48" class="label fem" th:text ="${passaro.femea48}"></spam></div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </table>
+                </div>
+                </table>
             <br>
         </div>
     </main>
