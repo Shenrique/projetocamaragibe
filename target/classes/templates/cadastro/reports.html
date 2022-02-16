@@ -63,11 +63,8 @@
                             <option th:each="filhote : ${filhotes}" th:value="${filhote.nome}" th:text="${filhote.nome}"></option>
                         </select>
                     </div>
-                    <input type="submit" value="Gerar PDF" class="btn btn-secondary" width="100">
+                        <input type="submit" value="Gerar PDF" class="btn btn-secondary" width="100">
                 </form>
-            </div>
-            <br>
-            <div>
                 <form th:action="@{/certificadoplantel}" method="get">
                     <label>Certificado - Plantel</label>
                     <div>
@@ -78,6 +75,9 @@
                     </div>
                     <input type="submit" value="Gerar PDF" class="btn btn-secondary" width="100">
                 </form>
+            </div>
+            <br>
+            <div>
             </div>
             <br>
             <div>
