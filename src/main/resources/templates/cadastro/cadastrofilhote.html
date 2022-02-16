@@ -89,7 +89,7 @@
                         <form action="pesquisarpassaro" method="POST" id="pesquisarpassaro">
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="pesGalador">Consultar Árvore Macho</label>
+                                    <label for="pesGalador">Selecione Macho</label>
                                     <select id="pesGalador" type="text" class="ls-custom" name="pesGalador" >
                                         <option value="">Selecione...</option>
                                         <option id="optionalbold" th:each="galador: ${todos}" th:text="${galador.nome}" th:value="${galador.nome}"></option>
@@ -99,7 +99,7 @@
                             <br>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <label for="pesMatriz">Consultar Árvore Femea</label>
+                                    <label for="pesMatriz">Selecione Femea</label>
                                     <select id="pesMatriz" type="text" class="ls-custom" name="pesMatriz" >
                                         <option value="">Selecione...</option>
                                         <option id="optionalboldfemea" th:each="galador: ${todas}" th:text="${galador.nome}" th:value="${galador.nome}"></option>
