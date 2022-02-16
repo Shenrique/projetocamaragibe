@@ -65,10 +65,29 @@ public class JasperController {
         response.getOutputStream().write(bytes);
 
     }
+
+    @GetMapping("/certificadoplantel")
+    public void exibirRelatorioPlantel(@RequestParam(name="plantelCertificado", required = false) String nome,
+                                  HttpServletResponse response) throws JRException, IOException {
+
+        service.adicionandoParamentro("nome", nome);
+
+        byte[] bytes = service.exportarCertificadoPDF();
+        response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+        response.setHeader("Content-disposition", "inline; filename="+ nome +".pdf");
+        response.getOutputStream().write(bytes);
+
+    }
+
     @ModelAttribute("filhotes")
         public List<Passaro> filhotes( ){
             return passaroRepository.findByNameS();
         }
+
+    @ModelAttribute("plantel")
+    public List<Passaro> plantel( ){
+        return passaroRepository.findByNamePlantel();
+    }
 
     @ModelAttribute("galador")
     public List<Passaro> galador(){

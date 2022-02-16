@@ -65,6 +65,19 @@
             </div>
             <br>
             <div>
+                <form th:action="@{/certificadoplantel}" method="get">
+                    <label>Certificado - Plantel</label>
+                    <div>
+                        <select id="plantelCertificado" name="plantelCertificado">
+                            <option value="">Selecione o Passaro</option>
+                            <option th:each="passaro : ${plantel}" th:value="${passaro.nome}" th:text="${passaro.nome}"></option>
+                        </select>
+                    </div>
+                    <input type="submit" value="Gerar PDF" class="btn btn-secondary" width="100">
+                </form>
+            </div>
+            <br>
+            <div>
                 <form th:action="@{/relatorioGalador}" method="get">
                     <label>Relatorio de Cruzas por galador:</label>
                     <div>
