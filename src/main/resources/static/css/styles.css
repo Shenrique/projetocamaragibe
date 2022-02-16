@@ -8,7 +8,9 @@ body {
   margin: 0;
 }
 
-
+#DivTituloPagina{
+    margin-left: 400px;
+}
 
 #formcadastro{
     margin-left: 10px;
