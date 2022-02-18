@@ -302,11 +302,11 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: calc(100vh - 70px);
-  background: url("../images/logobranca.jpeg") center center;
+  height: calc(100vh - 60px);
+  background: url("../images/plantel2.jpeg") center center;
   background-size: cover;
   position: relative;
-  margin-top: 70px;
+  margin-top: 60px;
   padding: 0;
 }
 
