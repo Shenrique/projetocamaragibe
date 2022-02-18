@@ -302,12 +302,12 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 100vh;
   background: url("../images/plantel2.jpeg") center center;
   background-size: cover;
   position: relative;
   margin-top: 60px;
-  padding: 0;
+  padding: 0
 }
 
 #pagepassaro {
