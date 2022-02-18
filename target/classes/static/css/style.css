@@ -392,9 +392,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/*
 #filhote{
   overflow-x: auto;
 }
+
+#filhote2{
+  overflow-x: auto;
+}
+*/
 
 @media only screen and (max-width:991px) {
   .touchcelularframe{
