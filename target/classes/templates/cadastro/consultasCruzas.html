@@ -30,27 +30,32 @@
 
 </head>
 <body>
-    <header>
-        <div class="container" id="nav-container">
-            <nav class="navbar navbar-expand-lg fixed-top">
-                <a href="#" class="navbar-brand">
-                    <img id="logo" src="/images/logoamarela.jpeg" alt="CurioFotoLogo"> CRIADOURO CAMARAGIBE
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links"
-                        aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-start" id="navbar-links">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" id="login" href="/">VOLTAR</a>
-                    </div>
-                    <div id="DivTituloPagina">
-                        <h1>CONSULTAS</h1>
-                    </div>
-                </div>
-            </nav>
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between">
+
+        <div class="logo">
+            <h1><a href="/"><img src="/images/logoamarela.jpeg" alt="" class="img-fluid"> CRIADOURO CAMARAGIBE</a></h1>
         </div>
-    </header>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto" href="/cadastroplantel">CADASTRO PLANTEL</a></li>
+                <li><a class="nav-link scrollto" href="/cadastrofilhote">CADASTRO FILHOTES</a></li>
+                <li class="dropdown"><a href="#"><span>PLANTEL</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/exibirMachos">MACHOS</a></li>
+                        <li><a href="/exibirFemeas">FÊMEAS</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto " href="#">CONSULTAS</a></li>
+                <li><a class="nav-link scrollto" href="/reports">RELATORIOS/CERTIFICADOS</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
     <main>
         <div class="container2-fluid">
             <table>
