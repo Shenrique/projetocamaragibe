@@ -16,6 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -87,7 +90,12 @@ public class PassaroController {
     public ModelAndView retornoComboMacho(@RequestParam("pesGalador") String pesGalador, @RequestParam("pesMatriz") String pesMatriz) {
         ModelAndView andView = new ModelAndView("cadastro/consultasCruzas");
         Passaro passaroComboGalador = passaroRepository.findByName(pesGalador);
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        String dataformatada = dateFormat.format(passaroComboGalador.getData_nascimento());
         Passaro passaroComboMatriz = passaroRepository.findByName(pesMatriz);
+        String dataformatadaF = dateFormat.format(passaroComboMatriz.getData_nascimento());
+        andView.addObject("dataformatada", dataformatada);
+        andView.addObject("dataformatadaF", dataformatadaF);
         andView.addObject("passaroComboGalador", passaroComboGalador);
         andView.addObject("passaroComboMatriz", passaroComboMatriz);
         return andView;

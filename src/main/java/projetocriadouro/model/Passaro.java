@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -28,7 +29,7 @@ public class Passaro {
 
     @Column(name = "data_nascimento")
     @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private LocalDate data_nascimento;
+    private Date data_nascimento;
 
     private String anilha;
 
@@ -99,11 +100,11 @@ public class Passaro {
         this.status_reproducao = status_reproducao;
     }
 
-    public LocalDate getData_nascimento() {
+    public Date getData_nascimento() {
         return data_nascimento;
     }
 
-    public void setData_nascimento(LocalDate data_nascimento) {
+    public void setData_nascimento(Date data_nascimento) {
         this.data_nascimento = data_nascimento;
     }
 
