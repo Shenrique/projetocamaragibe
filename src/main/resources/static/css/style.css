@@ -527,7 +527,7 @@ h1, h2, h3, h4, h5, h6 {
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #FFFFFF;
 }
 
 body {
@@ -761,7 +761,7 @@ input[type=text]:placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #FFFFFF;
   content: "";
   transition: width 0.2s;
 }
