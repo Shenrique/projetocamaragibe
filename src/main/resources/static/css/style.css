@@ -297,9 +297,17 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
 }
 
+.imagemDeFundo{
+    width: 100%;
+    height: 100vh;
+    background: url("../images/plantel2.jpeg") center center;
+    background-size: cover;
+    position: relative;
+}
+
 /*--------------------------------------------------------------
 # Hero Section
---------------------------------------------------------------*/
+
 #hero {
   width: 100%;
   height: 100vh;
@@ -309,6 +317,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 60px;
   padding: 0
 }
+
+--------------------------------------------------------------*/
 
 #pagepassaro {
   width: 100%;
