@@ -90,12 +90,7 @@ public class PassaroController {
     public ModelAndView retornoComboMacho(@RequestParam("pesGalador") String pesGalador, @RequestParam("pesMatriz") String pesMatriz) {
         ModelAndView andView = new ModelAndView("cadastro/consultasCruzas");
         Passaro passaroComboGalador = passaroRepository.findByName(pesGalador);
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        String dataformatada = dateFormat.format(passaroComboGalador.getData_nascimento());
         Passaro passaroComboMatriz = passaroRepository.findByName(pesMatriz);
-        String dataformatadaF = dateFormat.format(passaroComboMatriz.getData_nascimento());
-        andView.addObject("dataformatada", dataformatada);
-        andView.addObject("dataformatadaF", dataformatadaF);
         andView.addObject("passaroComboGalador", passaroComboGalador);
         andView.addObject("passaroComboMatriz", passaroComboMatriz);
         return andView;

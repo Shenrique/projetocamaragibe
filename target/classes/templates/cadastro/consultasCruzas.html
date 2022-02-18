@@ -86,6 +86,18 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                     <table class="table-responsive">
+                        <div id="consultando" th:each="passaro: ${passaroComboGalador}">
+                            <br>
+                            <Label>Macho:</Label>
+                            <div>
+                                <label>Data Nascimento:</label>
+                                <label id="datanascimento" th:text="${dataformatada}"></label>
+                            </div>
+                            <div>
+                                <label>Anilha:</label>
+                                <label th:text="${passaro.anilha}"></label>
+                            </div>
+                        </div>
                         <div id="filhote" th:each="passaro: ${passaroComboGalador}">
                             <style type="text/css">
                                       *,
@@ -354,6 +366,18 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div id="consultando2" th:each="passaro: ${passaroComboMatriz}">
+                            <br>
+                            <Label>Femea:</Label>
+                            <div>
+                                <label>Data Nascimento:</label>
+                                <label id="datanascimento2" th:text="${dataformatadaF}"></label>
+                            </div>
+                            <div>
+                                <label>Anilha:</label>
+                                <label th:text="${passaro.anilha}"></label>
                             </div>
                         </div>
                         <div id="filhote2" th:each="passaro: ${passaroComboMatriz}">
