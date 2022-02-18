@@ -14,12 +14,11 @@ public class UsuarioController {
 
     @GetMapping("/administracao")
     public String paginaAdmin(){
-        return "/administracao";
+        return "cadastro/administracao";
     }
 
     @GetMapping("/liberarAcesso")
     public String liberarAcesso(String usuario, String senha){
-//        Usuario usuarioRetorno = usuarioRepository.findNomeSenha(usuario, senha);
         if(usuario.equals("renan") && senha.equals("usina")){
             return "cadastro/administracao";
         }

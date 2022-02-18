@@ -38,11 +38,6 @@ public class PassaroController {
         return "cadastro/cadastroplantel";
     }
 
-    @GetMapping("/administracao")
-    public String paginaAdministracaoPassaro(){
-        return "cadastro/administracao";
-    }
-
     @GetMapping("/consultasCruzas")
     public String paginaConsultaMacho(){
         return "cadastro/consultasCruzas";
