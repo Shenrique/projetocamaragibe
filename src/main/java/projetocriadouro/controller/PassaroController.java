@@ -33,9 +33,9 @@ public class PassaroController {
     @Autowired
     private PassaroRepository passaroRepository;
 
-    @GetMapping("/cadastropassaro")
+    @GetMapping("/cadastroplantel")
     public String paginaCadastroPassaro(){
-        return "cadastro/cadastropassaro";
+        return "cadastro/cadastroplantel";
     }
 
     @GetMapping("/consultasCruzas")
@@ -71,7 +71,7 @@ public class PassaroController {
     @PostMapping("/salvarpassaro")
     public String salvarPassaro(Passaro passaro){
         passaroRepository.save(passaro);
-        return "cadastro/cadastropassaro";
+        return "cadastro/cadastroplantel";
     }
 
     @PostMapping("/salvarpassarofilhote")
