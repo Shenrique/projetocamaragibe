@@ -60,7 +60,7 @@
     <table class="table-responsive">
         <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
-          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                   <div id="body-arvore" th:each="passaro: ${todas}">
                         <div id="filhote">
                           <style type="text/css">
@@ -75,7 +75,7 @@
                                               #wrapper {
 
                                                   color: #000;
-                                                  font: 16px Verdana, sans-serif;
+                                                  font: 18px Verdana, sans-serif;
                                                   background: #FFF;
                                                   background-color: inherit;
                                                   position: relative;
@@ -199,6 +199,7 @@
                                                       color: inherit;
                                                   }
                                           </style>
+                          <h1 class="NomeAvore"><spam th:text="${passaro.nome}"></spam></h1>
                           <div id="wrapper">
                             <spam name="nome" class="label fem" th:text ="${passaro.nome}"></spam>
                             <div class="branch">
@@ -298,7 +299,6 @@
             <br>
             <br>
           </div>
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
         </div>
     </table>
   </div>
