@@ -305,7 +305,8 @@ h1, h2, h3, h4, h5, h6 {
 .imagemDeFundo{
     width: 100%;
     height: 100vh;
-    background: url("../images/versaofinal.jpeg") center center;
+    margin-top: 70px;
+    background: url("../images/cr.png") center center;
     background-size: cover;
     position: relative;
 }
