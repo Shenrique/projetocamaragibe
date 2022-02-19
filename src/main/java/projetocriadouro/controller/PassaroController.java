@@ -46,6 +46,11 @@ public class PassaroController {
         return "cadastro/consultasCruzas";
     }
 
+    @GetMapping("/consultasCruzasInicial")
+    public String paginaConsultaMacho2(){
+        return "cadastro/consultasCruzasInicial";
+    }
+
     @GetMapping("/cadastrofilhote")
     public String paginaCadastroFilhote(){
         return "cadastro/cadastrofilhote";
@@ -59,6 +64,16 @@ public class PassaroController {
     @GetMapping("/exibirFemeas")
     public String paginaExibirFemeas(){
         return "cadastro/exibirFemeas";
+    }
+
+    @GetMapping("/exibirMachosInicial")
+    public String paginaExibirMachos2(){
+        return "cadastro/exibirMachosInicial";
+    }
+
+    @GetMapping("/exibirFemeasInicial")
+    public String paginaExibirFemeas2(){
+        return "cadastro/exibirFemeasInicial";
     }
 
     @ModelAttribute("todos")
