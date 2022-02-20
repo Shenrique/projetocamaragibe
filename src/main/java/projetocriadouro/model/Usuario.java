@@ -13,7 +13,7 @@ public class Usuario {
     private Long codigo;
 
     @NotNull
-    private String usuario;
+    private String nome;
 
     @NotNull
     private String senha;
@@ -27,12 +27,12 @@ public class Usuario {
         this.codigo = codigo;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getNome() {
+        return nome;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getSenha() {
