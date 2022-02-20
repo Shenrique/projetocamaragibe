@@ -19,7 +19,7 @@ public class UsuarioController {
 
     @GetMapping("/liberarAcesso")
     public String liberarAcesso(String usuario, String senha){
-        if(usuario.equals("renan") && senha.equals("usina")){
+        if(usuario.equals("renan") && senha.equals("camaro")){
             return "cadastro/administracao";
         }
         return "cadastro/login";
