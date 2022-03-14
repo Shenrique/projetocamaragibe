@@ -102,8 +102,18 @@ public class PassaroController {
     }
 
     @PostMapping("/pesquisarpassaro")
-    public ModelAndView retornoComboMacho(@RequestParam("pesGalador") String pesGalador, @RequestParam("pesMatriz") String pesMatriz) {
+    public ModelAndView retornoCombos(@RequestParam("pesGalador") String pesGalador, @RequestParam("pesMatriz") String pesMatriz) {
         ModelAndView andView = new ModelAndView("cadastro/consultasCruzas");
+        Passaro passaroComboGalador = passaroRepository.findByName(pesGalador);
+        Passaro passaroComboMatriz = passaroRepository.findByName(pesMatriz);
+        andView.addObject("passaroComboGalador", passaroComboGalador);
+        andView.addObject("passaroComboMatriz", passaroComboMatriz);
+        return andView;
+    }
+
+    @PostMapping("/pesquisarpassaroInicial")
+    public ModelAndView retornoCombosInicial(@RequestParam("pesGalador") String pesGalador, @RequestParam("pesMatriz") String pesMatriz) {
+        ModelAndView andView = new ModelAndView("cadastro/consultasCruzasInicial");
         Passaro passaroComboGalador = passaroRepository.findByName(pesGalador);
         Passaro passaroComboMatriz = passaroRepository.findByName(pesMatriz);
         andView.addObject("passaroComboGalador", passaroComboGalador);
