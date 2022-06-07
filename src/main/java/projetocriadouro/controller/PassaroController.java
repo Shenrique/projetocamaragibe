@@ -4,6 +4,7 @@ import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import projetocriadouro.model.Passaro;
@@ -76,6 +77,11 @@ public class PassaroController {
         return "cadastro/exibirFemeasInicial";
     }
 
+    @GetMapping("/exclusao")
+    public String abrir(){
+        return "cadastro/exclusao";
+    }
+
     @ModelAttribute("todos")
     public List<Passaro> listarTodos(){
         return passaroRepository.findBySexo("Macho");
@@ -101,6 +107,34 @@ public class PassaroController {
         return passaroSalvo;
     }
 
+    @GetMapping("/excluirPassaroFilhote")
+    public ModelAndView excluirPassaroFilhote(@RequestParam("nomeFilhote") String nome,
+                                       HttpServletResponse response, HttpServletRequest request) throws Exception {
+
+        Passaro nomePassaro = passaroRepository.findByName(nome);
+        Long codigo = nomePassaro.getCodigo();
+        passaroRepository.deleteById(codigo);
+        ModelAndView andView = new ModelAndView("cadastro/exclusao");
+        andView.addObject("filhotes", filhotes());
+        andView.addObject("plantel", plantel());
+        return andView;
+    }
+
+    @GetMapping("/excluirPassaroPlantel")
+    public ModelAndView excluirPassaroPlantel(@RequestParam("nomePassaro") String nome,
+                                              HttpServletResponse response, HttpServletRequest request) throws Exception {
+
+        Passaro nomePassaro = passaroRepository.findByName(nome);
+        Long codigo = nomePassaro.getCodigo();
+        passaroRepository.deleteById(codigo);
+        ModelAndView andView = new ModelAndView("cadastro/exclusao");
+        andView.addObject("filhotes", filhotes());
+        andView.addObject("plantel", plantel());
+        return andView;
+    }
+
+
+
     @PostMapping("/pesquisarpassaro")
     public ModelAndView retornoCombos(@RequestParam("pesGalador") String pesGalador, @RequestParam("pesMatriz") String pesMatriz) {
         ModelAndView andView = new ModelAndView("cadastro/consultasCruzas");
@@ -119,6 +153,16 @@ public class PassaroController {
         andView.addObject("passaroComboGalador", passaroComboGalador);
         andView.addObject("passaroComboMatriz", passaroComboMatriz);
         return andView;
+    }
+
+    @ModelAttribute("filhotes")
+    public List<Passaro> filhotes( ){
+        return passaroRepository.findByNameS();
+    }
+
+    @ModelAttribute("plantel")
+    public List<Passaro> plantel( ){
+        return passaroRepository.findByNamePlantel();
     }
 
 

@@ -31,7 +31,6 @@
 <body>
 
 <!-- ======= Header ======= -->
-<!-- ======= Header ======= -->
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex justify-content-between">
 
@@ -65,52 +64,29 @@
     <main id="pagepassaro">
         <div class="container-fluid">
             <div>
-                <form th:action="@{/certificado}" method="get">
-                    <label>Certificado - Filhotes</label>
+                <form th:action="@{/excluirPassaroFilhote}" method="get">
+                    <label>Exclusão - Filhotes</label>
                     <div>
-                        <select id="nomeCertificado" name="nomeCertificado">
+                        <select id="nomeFilhote" name="nomeFilhote">
                             <option value="">Selecione o Filhote</option>
                             <option th:each="filhote : ${filhotes}" th:value="${filhote.nome}" th:text="${filhote.nome}"></option>
                         </select>
                     </div>
-                        <input type="submit" value="Gerar PDF" class="btn btn-secondary" width="100">
+                        <input type="submit" value="Excluir Filhote" class="btn btn-secondary" width="100">
                 </form>
-                <form th:action="@{/certificadoplantel}" method="get">
-                    <label>Certificado - Plantel</label>
+                <br>
+                <form th:action="@{/excluirPassaroPlantel}" method="get">
+                    <label>Excluir Ave - Plantel</label>
                     <div>
-                        <select id="plantelCertificado" name="plantelCertificado">
+                        <select id="plantelCertificado" name="nomePassaro">
                             <option value="">Selecione o Passaro</option>
                             <option th:each="passaro : ${plantel}" th:value="${passaro.nome}" th:text="${passaro.nome}"></option>
                         </select>
                     </div>
-                    <input type="submit" value="Gerar PDF" class="btn btn-secondary" width="100">
+                    <input type="submit" value="Excluir do Plantel" class="btn btn-secondary" width="100">
                 </form>
             </div>
             <br>
-            <div>
-            </div>
-            <br>
-            <div>
-                <form th:action="@{/relatorioGalador}" method="get">
-                    <label>Relatorio de Cruzas por galador:</label>
-                    <div>
-                        <select id="nomeGalador" name="nomeGalador">
-                            <option value="">Selecione o Galador</option>
-                            <option th:each="galador : ${galador}" th:value="${galador.nome}" th:text="${galador.nome}"></option>
-                        </select>
-                    </div>
-                    <input type="submit" value="Gerar Relatorio" class="btn btn-secondary" width="100">
-                </form>
-            </div>
-            <br>
-            <div>
-                <form th:action="@{/relatorioGeral}" method="get">
-                    <label>Relatorio Plantel</label>
-                    <div>
-                        <input type="submit" value="Gerar Relatorio" class="btn btn-secondary" width="100">
-                    </div>
-                </form>
-            </div>
         </div>
     </main>
 </body>

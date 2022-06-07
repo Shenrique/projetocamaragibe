@@ -41,15 +41,20 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto" href="/cadastroplantel">CADASTRO PLANTEL</a></li>
-                <li><a class="nav-link scrollto" href="/cadastrofilhote">CADASTRO FILHOTES</a></li>
+                <li class="dropdown"><a href="#"><span>CADASTROS</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/cadastroplantel">CADASTRO PLANTEL</a></li>
+                        <li><a href="/cadastrofilhote">CADASTRO FILHOTES</a></li>
+                    </ul>
+                </li>
+                <li><a class="nav-link scrollto" href="/exclusao">EXCLUSÃO</a></li>
                 <li class="dropdown"><a href="#"><span>PLANTEL</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="/exibirMachos">MACHOS</a></li>
                         <li><a href="/exibirFemeas">FÊMEAS</a></li>
                     </ul>
                 </li>
-                <li><a class="nav-link scrollto " href="#">CONSULTAS</a></li>
+                <li><a class="nav-link scrollto " href="/consultasCruzas">CONSULTAS</a></li>
                 <li><a class="nav-link scrollto" href="/reports">RELATORIOS/CERTIFICADOS</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
