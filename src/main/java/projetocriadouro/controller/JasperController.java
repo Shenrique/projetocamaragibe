@@ -68,10 +68,10 @@ public class JasperController {
     }
 
     @GetMapping("/placaIntervalo")
-    public void placaIntervalo(@RequestParam(name="dataInicial", required = false) Date dataIncial, @RequestParam(name="dataFinal",  required = false) Date dataFinal,
+    public void placaIntervalo(@RequestParam(name="dataInicial", required = false) Date dataInicial, @RequestParam(name="dataFinal",  required = false) Date dataFinal,
                                   HttpServletResponse response) throws JRException, IOException {
 
-        service.adicionandoParamentro("dataInicial", dataIncial);
+        service.adicionandoParamentro("dataInicial", dataInicial);
         service.adicionandoParamentro("dataFinal", dataFinal);
 
         byte[] bytes = service.exportarPlacasPDF();

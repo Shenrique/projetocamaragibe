@@ -23,7 +23,7 @@ public class JasperService {
     private static final String JASPER_PREFIXO_RELATORIO = "relatorioGeral-01";
     private static final String JASPER_PREFIXO_CERTIFICADO = "Camaragibe";
     private static final String JASPER_PREFIXO_GALADOR = "relatorioGalador";
-    private static final String JASPER_PREFIXO_PLACAS = "Placas";
+    private static final String JASPER_PREFIXO_PLACAS = "etiquetasPlacas";
     private static final String JASPER_SUFIXO = ".jasper";
 
     @Autowired
