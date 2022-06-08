@@ -118,25 +118,25 @@
                     <br>
                     <label>Periodo Inicial:</label>
                     <div>
-                        <input name="dataInicial" autocomplete="off" maxlength="14" placeholder="01/01/2022" id="dataInicial" autofocus="autofocus"></input>
+                        <input name="dataInicial" autocomplete="off" maxlength="14" placeholder="MM/dd/yyyy" id="dataInicial" autofocus="autofocus"></input>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"></script>
                         <script>
                                 new Cleave('#dataInicial', {
                                 date: true,
                                 delimiter: '/',
-                                datePattern: ['d', 'm', 'Y']
+                                datePattern: ['m', 'd', 'Y']
                                 });
                         </script>
                     </div>
                     <label>Periodo Final:</label>
                     <div>
-                        <input name="dataFinal" autocomplete="off" maxlength="14" placeholder="01/01/2022" id="dataFinal" autofocus="autofocus"></input>
+                        <input name="dataFinal" autocomplete="off" maxlength="14" placeholder="mes/dia/ano" id="dataFinal" autofocus="autofocus"></input>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"></script>
                         <script>
                                 new Cleave('#dataFinal', {
                                 date: true,
                                 delimiter: '/',
-                                datePattern: ['d', 'm', 'Y']
+                                datePattern: ['m', 'd', 'Y']
                                 });
                         </script>
                     </div>
