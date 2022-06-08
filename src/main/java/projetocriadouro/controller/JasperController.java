@@ -14,6 +14,7 @@ import projetocriadouro.service.JasperService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -62,6 +63,20 @@ public class JasperController {
         byte[] bytes = service.exportarCertificadoPDF();
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
         response.setHeader("Content-disposition", "inline; filename="+ nome +".pdf");
+        response.getOutputStream().write(bytes);
+
+    }
+
+    @GetMapping("/placaIntervalo")
+    public void placaIntervalo(@RequestParam(name="dataInicial", required = false) Date dataIncial, @RequestParam(name="dataFinal",  required = false) Date dataFinal,
+                                  HttpServletResponse response) throws JRException, IOException {
+
+        service.adicionandoParamentro("dataInicial", dataIncial);
+        service.adicionandoParamentro("dataFinal", dataFinal);
+
+        byte[] bytes = service.exportarPlacasPDF();
+        response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+        response.setHeader("Content-disposition", "inline; filename=placa.pdf");
         response.getOutputStream().write(bytes);
 
     }
