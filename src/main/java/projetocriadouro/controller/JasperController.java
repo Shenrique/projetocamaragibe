@@ -75,15 +75,15 @@ public class JasperController {
                                   HttpServletResponse response) throws JRException, IOException, ParseException {
 
 
-        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
-        String dataIni = formatador.format(dataInicial);
-        String dataFin = formatador.format(dataFinal);
+//        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+//        String dataIni = formatador.format(dataInicial);
+//        String dataFin = formatador.format(dataFinal);
+//
+//        Date dataIncial1 = formatador.parse(dataIni);
+//        Date dataFinal1 = formatador.parse(dataFin);
 
-        Date dataIncial1 = formatador.parse(dataIni);
-        Date dataFinal1 = formatador.parse(dataFin);
-
-        service.adicionandoParamentro("dataInicial", dataIncial1);
-        service.adicionandoParamentro("dataFinal", dataFinal1);
+        service.adicionandoParamentro("dataInicial", dataInicial);
+        service.adicionandoParamentro("dataFinal", dataFinal);
 
         byte[] bytes = service.exportarPlacasPDF();
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
