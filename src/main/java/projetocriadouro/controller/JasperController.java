@@ -14,6 +14,8 @@ import projetocriadouro.service.JasperService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -71,8 +73,13 @@ public class JasperController {
     public void placaIntervalo(@RequestParam(name="dataInicial", required = false) Date dataInicial, @RequestParam(name="dataFinal",  required = false) Date dataFinal,
                                   HttpServletResponse response) throws JRException, IOException {
 
-        service.adicionandoParamentro("dataInicial", dataInicial);
-        service.adicionandoParamentro("dataFinal", dataFinal);
+
+        SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+        String dataIni = formatador.format(dataInicial);
+        String dataFin = formatador.format(dataFinal);
+
+        service.adicionandoParamentro("dataInicial", dataIni);
+        service.adicionandoParamentro("dataFinal", dataFin);
 
         byte[] bytes = service.exportarPlacasPDF();
         response.setContentType(MediaType.APPLICATION_PDF_VALUE);
