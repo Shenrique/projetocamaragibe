@@ -518,6 +518,7 @@ section {
 .features img{
     width: 522px;
     height: 696px;
+    margin-top: 180px;
 }
 @-webkit-keyframes slide-down {
   0% {
