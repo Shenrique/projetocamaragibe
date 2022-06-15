@@ -542,6 +542,14 @@ section {
   color: #fff;
 }
 
+#features{
+    text-align: center;
+    background: #a9a9a9;
+    font-size: 14px;
+    font-color: #000000;
+    font-weight: bold;
+}
+
 
 #filhote{
   overflow-x: auto;
