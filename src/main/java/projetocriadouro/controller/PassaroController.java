@@ -72,14 +72,14 @@ public class PassaroController {
         return "cadastro/exibirFemeas";
     }
 
-    @GetMapping("/exibirMachosInicial")
+    @GetMapping("/plantelGaladores")
     public String paginaExibirMachos2(){
-        return "cadastro/exibirMachosInicial";
+        return "cadastro/plantelGaladores";
     }
 
-    @GetMapping("/exibirFemeasInicial")
+    @GetMapping("/plantelMatrizes")
     public String paginaExibirFemeas2(){
-        return "cadastro/exibirFemeasInicial";
+        return "cadastro/plantelMatrizes";
     }
 
     @GetMapping("/exclusao")
