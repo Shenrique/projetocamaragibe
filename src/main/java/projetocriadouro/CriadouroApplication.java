@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class CriadouroApplication {
 
     public static void main(String[] args) {
-//        System.out.println(new BCryptPasswordEncoder().encode("requinte2022"));
+//        System.out.println(new BCryptPasswordEncoder().encode("padrao2002"));
         SpringApplication.run(CriadouroApplication.class, args);
     }
 
