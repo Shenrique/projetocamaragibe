@@ -9,7 +9,7 @@ import projetocriadouro.model.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-    @Query("from Usuario p where p.nome = :nome and senha = :senha")
-    Usuario findNomeSenha(@Param("nome") String nome, @Param("senha") String senha);
+    @Query("select p from Usuario p where p.nome like :nome")
+    Usuario findNome(@Param("nome") String nome);
 
 }

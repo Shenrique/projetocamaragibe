@@ -37,6 +37,11 @@ public class PassaroController {
     @Autowired
     private PassaroRepository passaroRepository;
 
+    @GetMapping("/administracao")
+    public String paginaAdmin(){
+        return "cadastro/administracao";
+    }
+
     @GetMapping("/cadastroplantel")
     public String paginaCadastroPassaro(){
         return "cadastro/cadastroplantel";

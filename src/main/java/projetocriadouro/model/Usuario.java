@@ -1,23 +1,51 @@
 package projetocriadouro.model;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+
+@SuppressWarnings("serial")
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "id")
     private Long codigo;
 
-    @NotNull
+
+    @Column(name = "nome", unique = true, nullable = false)
     private String nome;
 
-    @NotNull
+    @JsonIgnore
+    @Column(name = "senha", nullable = false)
     private String senha;
 
+    @ManyToMany
+    @JoinTable(
+            name = "usuarios_tem_perfis",
+            joinColumns = {@JoinColumn(name = "usuario_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "perfil_id", referencedColumnName = "id")}
+    )
+
+    private List<Perfil> perfis;
+
+    @Column(name = "ativo", nullable = false, columnDefinition = "TINYINT(1)")
+    private boolean ativo;
+
+    @Column(name = "codigo_verificador", length = 6)
+    private String codigoVerificador;
+
+    public Usuario() {
+    }
+
+    public Usuario(String nome) {
+        this.nome = nome;
+    }
 
     public Long getCodigo() {
         return codigo;
@@ -25,6 +53,14 @@ public class Usuario {
 
     public void setCodigo(Long codigo) {
         this.codigo = codigo;
+    }
+
+    // adiciona perfis a lista
+    public void addPerfil(PerfilTipo tipo) {
+        if (this.perfis == null) {
+            this.perfis = new ArrayList<>();
+        }
+        this.perfis.add(new Perfil(tipo.getCod()));
     }
 
     public String getNome() {
@@ -43,16 +79,28 @@ public class Usuario {
         this.senha = senha;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return codigo.equals(usuario.codigo);
+    public List<Perfil> getPerfis() {
+        return perfis;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(codigo);
+    public void setPerfis(List<Perfil> perfis) {
+        this.perfis = perfis;
     }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getCodigoVerificador() {
+        return codigoVerificador;
+    }
+
+    public void setCodigoVerificador(String codigoVerificador) {
+        this.codigoVerificador = codigoVerificador;
+    }
+
 }
