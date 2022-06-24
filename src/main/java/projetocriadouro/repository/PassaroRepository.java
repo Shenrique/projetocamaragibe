@@ -29,4 +29,7 @@ public interface PassaroRepository extends JpaRepository<Passaro, Long> {
     @Query("from Passaro p where p.sexo = 'Macho' and status_reproducao = 'S' ORDER BY nome ASC")
     List<Passaro> findByGalador();
 
+    @Query("from Passaro ORDER BY nome ASC")
+    List<Passaro> findTodos();
+
 }

@@ -189,7 +189,7 @@ public class PassaroController {
 
     @ModelAttribute("geralAves")
     public List<Passaro> geralAves(){
-        return passaroRepository.findAll();
+        return passaroRepository.findTodos();
     }
 
 }
