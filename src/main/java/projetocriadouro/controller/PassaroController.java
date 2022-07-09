@@ -38,79 +38,79 @@ public class PassaroController {
     private PassaroRepository passaroRepository;
 
     @GetMapping("/administracao")
-    public String paginaAdmin(){
+    public String paginaAdmin() {
         return "cadastro/administracao";
     }
 
     @GetMapping("/cadastroplantel")
-    public String paginaCadastroPassaro(){
+    public String paginaCadastroPassaro() {
         return "cadastro/cadastroplantel";
     }
 
     @GetMapping("/consultasCruzas")
-    public String paginaConsultaMacho(){
+    public String paginaConsultaMacho() {
         return "cadastro/consultasCruzas";
     }
 
     @GetMapping("/consultasCruzasInicial")
-    public String paginaConsultaMacho2(){
+    public String paginaConsultaMacho2() {
         return "cadastro/consultasCruzasInicial";
     }
 
     @GetMapping("/cadastrofilhote")
-    public String paginaCadastroFilhote(){
+    public String paginaCadastroFilhote() {
         return "cadastro/cadastrofilhote";
     }
 
     @GetMapping("/exibirMachos")
-    public String paginaExibirMachos(){
+    public String paginaExibirMachos() {
         return "cadastro/exibirMachos";
     }
 
     @GetMapping("/exibirFemeas")
-    public String paginaExibirFemeas(){
+    public String paginaExibirFemeas() {
         return "cadastro/exibirFemeas";
     }
 
     @GetMapping("/plantelGaladores")
-    public String paginaExibirMachos2(){
+    public String paginaExibirMachos2() {
         return "cadastro/plantelGaladores";
     }
 
     @GetMapping("/plantelMatrizes")
-    public String paginaExibirFemeas2(){
+    public String paginaExibirFemeas2() {
         return "cadastro/plantelMatrizes";
     }
 
     @GetMapping("/exclusao")
-    public String abrir(){
+    public String abrir() {
         return "cadastro/exclusao";
     }
 
     @GetMapping("/editarPassaro")
-    public String editarPassaro(){
+    public String editarPassaro() {
         return "cadastro/editarPassaro";
     }
 
     @ModelAttribute("todos")
-    public List<Passaro> listarTodos(){
+    public List<Passaro> listarTodos() {
         return passaroRepository.findBySexo("Macho");
     }
 
     @ModelAttribute("todas")
-    public List<Passaro> listarTodas(){
+    public List<Passaro> listarTodas() {
         return passaroRepository.findBySexo("Femea");
     }
 
     @PostMapping("/salvarpassaro")
-    public String salvarPassaro(Passaro passaro){
+    public String salvarPassaro(Passaro passaro) {
         passaroRepository.save(passaro);
         return "cadastro/cadastroplantel";
     }
 
     @PostMapping("/salvarpassarofilhote")
-    public ModelAndView salvarPassaroFilhote(Passaro passaro,@RequestParam("pesGalador") String pesGalador,
-                                             @RequestParam("pesMatriz") String pesMatriz,@RequestParam("nome") String nome,
+    public ModelAndView salvarPassaroFilhote(Passaro passaro, @RequestParam("pesGalador") String pesGalador,
+                                             @RequestParam("pesMatriz") String pesMatriz, @RequestParam("nome") String nome,
                                              HttpServletResponse response, HttpServletRequest request) throws Exception {
 
         ModelAndView passaroSalvo = passaroService.salvar(passaro, pesGalador, pesMatriz, nome);
@@ -119,7 +119,7 @@ public class PassaroController {
 
     @GetMapping("/excluirPassaroFilhote")
     public ModelAndView excluirPassaroFilhote(@RequestParam("nomeFilhote") String nome,
-                                       HttpServletResponse response, HttpServletRequest request) throws Exception {
+                                              HttpServletResponse response, HttpServletRequest request) throws Exception {
 
         Passaro nomePassaro = passaroRepository.findByName(nome);
         Long codigo = nomePassaro.getCodigo();
@@ -144,7 +144,6 @@ public class PassaroController {
     }
 
 
-
     @PostMapping("/pesquisarpassaro")
     public ModelAndView retornoCombos(@RequestParam("pesGalador") String pesGalador, @RequestParam("pesMatriz") String pesMatriz) {
         ModelAndView andView = new ModelAndView("cadastro/consultasCruzas");
@@ -167,7 +166,7 @@ public class PassaroController {
 
     @GetMapping("/editarPassaros")
     public ModelAndView editarPassaro(@RequestParam("nomeEdicao") String nome,
-                                              HttpServletResponse response, HttpServletRequest request) throws Exception {
+                                      HttpServletResponse response, HttpServletRequest request) throws Exception {
 
         Passaro nomePassaro = passaroRepository.findByName(nome);
         Long codigo = nomePassaro.getCodigo();
@@ -178,17 +177,17 @@ public class PassaroController {
     }
 
     @ModelAttribute("filhotes")
-    public List<Passaro> filhotes( ){
+    public List<Passaro> filhotes() {
         return passaroRepository.findByNameS();
     }
 
     @ModelAttribute("plantel")
-    public List<Passaro> plantel( ){
+    public List<Passaro> plantel() {
         return passaroRepository.findByNamePlantel();
     }
 
     @ModelAttribute("geralAves")
-    public List<Passaro> geralAves(){
+    public List<Passaro> geralAves() {
         return passaroRepository.findTodos();
     }
 
