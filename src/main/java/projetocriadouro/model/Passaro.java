@@ -23,6 +23,9 @@ public class Passaro {
     @NotNull
     private String sexo;
 
+    @NotNull
+    private String venda;
+
     @Column(name = "status_reproducao")
     @Enumerated(EnumType.STRING)
     private StatusReproducao status_reproducao;
@@ -354,6 +357,14 @@ public class Passaro {
 
     public void setAnilha(String anilha) {
         this.anilha = anilha;
+    }
+
+    public String getVenda() {
+        return venda;
+    }
+
+    public void setVenda(String venda) {
+        this.venda = venda;
     }
 
     @Override

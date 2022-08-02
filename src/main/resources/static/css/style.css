@@ -981,3 +981,46 @@ input[type=text]:placeholder {
 #icon {
   width:60%;
 }
+
+/*Filhotes a venda
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  color: #222;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  justify-content: center;
+  padding: 30px;
+  width: 100vw;
+}*/
+
+/******
+ Styles
+*******/
+
+table{
+    width: 60%;
+}
+
+table, th, td{
+    border: 1px solid black;
+    margin: auto;
+}
+
+th{
+    font-size: 20px;
+    text-align: center;
+    background-color: silver;
+}
+
+td{
+    font-size: 16px;
+    text-align: center;
+}

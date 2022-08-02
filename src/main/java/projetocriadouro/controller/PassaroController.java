@@ -92,6 +92,11 @@ public class PassaroController {
         return "cadastro/editarPassaro";
     }
 
+    @GetMapping("/filhotesAVenda")
+    public String filhotesAVenda() {
+        return "cadastro/filhotesAVenda";
+    }
+
     @ModelAttribute("todos")
     public List<Passaro> listarTodos() {
         return passaroRepository.findBySexo("Macho");
@@ -164,15 +169,18 @@ public class PassaroController {
         return andView;
     }
 
-    @GetMapping("/editarPassaros")
-    public ModelAndView editarPassaro(@RequestParam("nomeEdicao") String nome,
+    @PostMapping("/editarPassaros")
+    public ModelAndView editarPassaro(Passaro passaro, @RequestParam("nomeEdicao") String nome,
                                       HttpServletResponse response, HttpServletRequest request) throws Exception {
 
-        Passaro nomePassaro = passaroRepository.findByName(nome);
-        Long codigo = nomePassaro.getCodigo();
-//        passaroRepository.deleteById(codigo);
+
         ModelAndView andView = new ModelAndView("cadastro/editarPassaro");
         andView.addObject("geralAves", geralAves());
+        Passaro nomePassaro = passaroRepository.findByName(nome);
+        andView.addObject("nomePassaro", nomePassaro);
+
+
+
         return andView;
     }
 
