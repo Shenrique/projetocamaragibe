@@ -64,6 +64,7 @@
 </header><!-- End Header -->
 <main id="pagepassaro">
     <div class="container-fluid">
+        <form th:action="@{/verArvoreFilhote}" method="POST" id="verArvoreFilhote">
         <table class="table-responsive">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -76,7 +77,7 @@
                                 <th>Pai</th>
                                 <th>Mãe</th>
                                 <th>Status</th>
-                                <th></th>
+                                <th>Visualizar Arvore</th>
                             </tr>
                         </thead>
                         <tr th:each = "filhotes: ${filhotes}">
@@ -87,11 +88,15 @@
                             <td th:text ="${filhotes.macho1}"></td>
                             <td th:text ="${filhotes.femea1}"></td>
                             <td th:text ="${filhotes.venda}"></td>
-                            <td><a href=""><b style="color:  #2385e6 !important">Ver Árvore</b></a></td></td>
+                            <td>
+                                <input id="anilhaFilhote" name="anilhaFilhote" th:value="${filhotes.anilha}"
+                                       type="submit" class="btn btn-secondary" width="50px" height="100%">
+                            </td>
                         </tr>
                 </div>
             </div>
         </table>
+        </form>
     </div>
 </main>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
