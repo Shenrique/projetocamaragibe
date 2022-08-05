@@ -198,6 +198,15 @@ public class PassaroController {
         return andView;
     }
 
+    @PostMapping("/verArvoreFilhoteF")
+    public ModelAndView verArvoreFilhoteVendaF(@RequestParam("anilhaFilhote") String anilhaFilhote,
+                                              HttpServletResponse response, HttpServletRequest request) throws Exception {
+        Passaro passaroArvoreFilhote = passaroRepository.findByAnilhaFilhoteVenda(anilhaFilhote);
+        ModelAndView andView = new ModelAndView("cadastro/verArvoreFemea");
+        andView.addObject("passaroArvoreFilhote", passaroArvoreFilhote);
+        return andView;
+    }
+
 
     @ModelAttribute("filhotes")
     public List<Passaro> filhotes() {
