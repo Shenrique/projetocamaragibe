@@ -92,9 +92,14 @@ public class PassaroController {
         return "cadastro/editarPassaro";
     }
 
-    @GetMapping("/filhotesAVenda")
-    public String filhotesAVenda() {
-        return "cadastro/filhotesAVenda";
+    @GetMapping("/filhotesAVendaMachos")
+    public String filhotesAVendaMachos() {
+        return "cadastro/filhotesAVendaMachos";
+    }
+
+    @GetMapping("/filhotesAVendaFemeas")
+    public String filhotesAVendaFemeas() {
+        return "cadastro/filhotesAVendaFemeas";
     }
 
     @ModelAttribute("todos")
@@ -197,6 +202,16 @@ public class PassaroController {
     @ModelAttribute("filhotes")
     public List<Passaro> filhotes() {
         return passaroRepository.findByNameS();
+    }
+
+    @ModelAttribute("filhotesMachos")
+    public List<Passaro> filhotesMachos() {
+        return passaroRepository.findByVendaMacho();
+    }
+
+    @ModelAttribute("filhotesFemeas")
+    public List<Passaro> filhotesFemeas() {
+        return passaroRepository.findByVendaFemea();
     }
 
     @ModelAttribute("plantel")
