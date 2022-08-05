@@ -1015,12 +1015,16 @@ table, th, td{
 }
 
 th{
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
     background-color: silver;
 }
 
 td{
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
+}
+
+#vendaFilhotes th{
+    padding: 5px;
 }
