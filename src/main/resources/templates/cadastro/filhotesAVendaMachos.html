@@ -35,7 +35,7 @@
     <div class="container d-flex justify-content-between">
 
         <div class="logo">
-            <h1><a href="#"><img src="/images/logoamarela.jpeg" alt="" class="img-fluid"> CRIADOURO CAMARAGIBE</a></h1>
+            <h1><a href="/"><img src="/images/logoamarela.jpeg" alt="" class="img-fluid"> CRIADOURO CAMARAGIBE</a></h1>
         </div>
 
         <nav id="navbar" class="navbar">
@@ -85,7 +85,7 @@
                             </tr>
                         </thead>
                         <tr th:each = "filhotes: ${filhotesMachos}">
-                            <td th:text ="${filhotes.sexo}"></td>
+                            <td th:text ="${filhotes.sexo}"  style="color:blue; font-weight: bold;" ></td>
                             <td th:text ="${filhotes.anilha}"></td>
                             <td th:text ="${filhotes.data_nascimento}"></td>
                             <td th:text ="${filhotes.macho1}"></td>
