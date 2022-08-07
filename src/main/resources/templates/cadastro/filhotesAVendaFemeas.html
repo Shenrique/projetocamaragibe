@@ -77,15 +77,15 @@
                             <tr>
                                 <th width="10%">Sexo</th>
                                 <th width="10%">Anilha</th>
-                                <th width="8%">Nasc</th>
-                                <th width="10%">Pai</th>
-                                <th width="10%">Mãe</th>
+                                <th width="10%">Nasc</th>
+                                <th width="15%">Pai</th>
+                                <th width="15%">Mãe</th>
                                 <th width="10%">Disponível</th>
-                                <th width="20%">Visualizar Arvore</th>
+                                <th width="15%">Visualizar Arvore</th>
                             </tr>
                         </thead>
                         <tr th:each = "filhotes: ${filhotesFemeas}">
-                            <td th:text ="${filhotes.sexo}"  style="color:red; font-weight: bold;" ></td>
+                            <td class="centralizado" th:text ="${filhotes.sexo}"  style="color:red; font-weight: bold;" ></td>
                             <td class="largura130" th:text ="${filhotes.anilha}"></td>
                             <td th:text ="${filhotes.data_nascimento}"></td>
                             <td class="largura130" th:text ="${filhotes.macho1}"></td>

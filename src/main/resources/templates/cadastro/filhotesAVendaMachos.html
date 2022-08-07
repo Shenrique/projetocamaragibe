@@ -76,21 +76,21 @@
                         <thead>
                             <tr>
                                 <th width="10%">Sexo</th>
-                                <th width="15%">Anilha</th>
-                                <th width="12%">Nasc</th>
-                                <th width="10%">Pai</th>
-                                <th width="10%">Mãe</th>
+                                <th width="10%">Anilha</th>
+                                <th width="10%">Nasc</th>
+                                <th width="15%">Pai</th>
+                                <th width="15%">Mãe</th>
                                 <th width="10%">Disponível</th>
-                                <th>Visualizar Arvore</th>
+                                <th width="15%">Visualizar Arvore</th>
                             </tr>
                         </thead>
                         <tr th:each = "filhotes: ${filhotesMachos}">
-                            <td th:text ="${filhotes.sexo}"  style="color:blue; font-weight: bold;" ></td>
+                            <td class="centralizado" th:text ="${filhotes.sexo}"  style="color:blue; font-weight: bold;" ></td>
                             <td class="largura130" th:text ="${filhotes.anilha}"></td>
                             <td th:text ="${filhotes.data_nascimento}"></td>
                             <td class="largura130" th:text ="${filhotes.macho1}"></td>
                             <td class="largura130" th:text ="${filhotes.femea1}"></td>
-                            <td th:text ="${filhotes.venda}"></td>
+                            <td class="centralizado" th:text ="${filhotes.venda}"></td>
                             <td class="visualizarArvore">
                                 <input id="anilhaFilhote" name="anilhaFilhote" th:value="${filhotes.anilha}"
                                        type="submit" class="btn btn-secondary" width="50px" height="100%">
