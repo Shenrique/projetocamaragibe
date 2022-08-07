@@ -86,10 +86,10 @@
                         </thead>
                         <tr th:each = "filhotes: ${filhotesFemeas}">
                             <td th:text ="${filhotes.sexo}"  style="color:red; font-weight: bold;" ></td>
-                            <td th:text ="${filhotes.anilha}"></td>
+                            <td class="largura130" th:text ="${filhotes.anilha}"></td>
                             <td th:text ="${filhotes.data_nascimento}"></td>
-                            <td th:text ="${filhotes.macho1}"></td>
-                            <td th:text ="${filhotes.femea1}"></td>
+                            <td class="largura130" th:text ="${filhotes.macho1}"></td>
+                            <td class="largura130" th:text ="${filhotes.femea1}"></td>
                             <td th:text ="${filhotes.venda}"></td>
                             <td>
                                 <input id="anilhaFilhote" name="anilhaFilhote" th:value="${filhotes.anilha}"

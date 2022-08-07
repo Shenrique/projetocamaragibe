@@ -1025,6 +1025,37 @@ td{
     text-align: center;
 }
 
-#vendaFilhotes th{
-    padding: 5px;
+#vendaFilhotes th, td{
+     padding: 5px;
+     position: relative;
+}
+
+@media only screen and (max-width:991px) {
+#vendaFilhotes{
+font-size: 0.75em !important;
+}
+.largurawidth55 {
+    min-width: 40px !important;
+    width: 40px !important;
+}
+.largurawidth90 {
+    width: 80px !important;
+    font-size: 0.85em;
+}
+.largura90 {
+    min-width: 70px !important;
+}
+.largura130 {
+    min-width: 90px !important;
+}
+.largura170 {
+    min-width: 150px !important;
+}
+.largura255 {
+    min-width: 180px;
+}
+.largura250 {
+    min-width: 200px;
+    font-size: 0.85em;
+}
 }

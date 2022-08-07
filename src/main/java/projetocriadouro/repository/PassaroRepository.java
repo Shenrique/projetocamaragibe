@@ -26,7 +26,7 @@ public interface PassaroRepository extends JpaRepository<Passaro, Long> {
     @Query("from Passaro p where p.status_reproducao = 'N' and p.sexo = 'Macho' ORDER BY nome ASC")
     List<Passaro> findByVendaMacho();
 
-    @Query("from Passaro p where p.status_reproducao = 'N' and p.sexo = 'Femea' ORDER BY nome ASC")
+    @Query("from Passaro p where p.status_reproducao = 'N' and p.sexo = 'Fêmea' ORDER BY nome ASC")
     List<Passaro> findByVendaFemea();
 
     @Query("from Passaro p where p.anilha = :anilha")
