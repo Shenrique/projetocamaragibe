@@ -31,6 +31,7 @@ public class Passaro {
     private StatusReproducao status_reproducao;
 
     @Column(name = "data_nascimento")
+    @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date data_nascimento;
 

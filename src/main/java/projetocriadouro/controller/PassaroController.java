@@ -18,8 +18,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.TemporalAccessor;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -214,8 +219,8 @@ public class PassaroController {
     }
 
     @ModelAttribute("filhotesMachos")
-    public List<Passaro> filhotesMachos() {
-        return passaroRepository.findByVendaMacho();
+    public List<Passaro> filhotesMachos(){
+       return passaroRepository.findByVendaMacho();
     }
 
     @ModelAttribute("filhotesFemeas")

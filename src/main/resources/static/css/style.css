@@ -1022,6 +1022,10 @@ th{
 
 td{
     font-size: 12px;
+    text-align: left;
+}
+
+.visualizarArvore{
     text-align: center;
 }
 
@@ -1046,7 +1050,7 @@ font-size: 0.75em !important;
     min-width: 70px !important;
 }
 .largura130 {
-    min-width: 90px !important;
+    min-width: 100px !important;
 }
 .largura170 {
     min-width: 150px !important;
