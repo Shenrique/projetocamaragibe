@@ -114,7 +114,7 @@ public class PassaroController {
 
     @ModelAttribute("todas")
     public List<Passaro> listarTodas() {
-        return passaroRepository.findBySexo("Femea");
+        return passaroRepository.findBySexo("Fêmea");
     }
 
     @PostMapping("/salvarpassaro")
