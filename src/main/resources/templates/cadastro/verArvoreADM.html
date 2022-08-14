@@ -35,7 +35,7 @@
     <div class="container d-flex justify-content-between">
 
         <div class="logo">
-            <h1><a href="#"><img src="/images/logoamarela.jpeg" alt="" class="img-fluid"> CRIADOURO CAMARAGIBE</a></h1>
+            <h1><a href="/"><img src="/images/logoamarela.jpeg" alt="" class="img-fluid"> CRIADOURO CAMARAGIBE</a></h1>
         </div>
 
         <nav id="navbar" class="navbar">
@@ -72,8 +72,8 @@
         <table class="table-responsive">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"></div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" >
-                    <div id="body-arvore" th:each="passaro: ${todos}">
+               <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" >
+                    <div id="body-arvore" th:each="passaro: ${passaroArvoreFilhote}" method="GET">
                         <div id="filhote">
                             <style type="text/css">
                                               *,
@@ -210,9 +210,8 @@
                                                       color: inherit;
                                                   }
                                           </style>
-                            <h1 class="NomeAvore"><spam th:text="${passaro.nome}"></spam></h1>
                             <div id="wrapper">
-                                <spam name="nome" class="label masc" th:text ="${passaro.nome}"></spam>
+                                <spam name="nome" class="label masc" th:text ="${passaro.anilha}"></spam>
                                 <div class="branch">
                                     <div class="entry">
                                         <spam name="macho1" class="label masc" th:text ="${passaro.macho1}"></spam><div class="branch">
@@ -310,6 +309,9 @@
                     <br>
                     <br>
                 </div>
+               <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" align="center">
+                   <a href="/filhotesAVendaMachosADM"><b>VOLTAR</b></a>
+               </div>
             </div>
         </table>
     </div>

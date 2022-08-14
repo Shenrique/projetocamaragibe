@@ -26,6 +26,9 @@ public class Passaro {
     @NotNull
     private String venda;
 
+    @NotNull
+    private String ocultar;
+
     @Column(name = "status_reproducao")
     @Enumerated(EnumType.STRING)
     private StatusReproducao status_reproducao;
@@ -366,6 +369,14 @@ public class Passaro {
 
     public void setVenda(String venda) {
         this.venda = venda;
+    }
+
+    public String getOcultar() {
+        return ocultar;
+    }
+
+    public void setOcultar(String ocultar) {
+        this.ocultar = ocultar;
     }
 
     @Override

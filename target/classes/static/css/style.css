@@ -1015,13 +1015,13 @@ table, th, td{
 }
 
 th{
-    font-size: 16px;
+    font-size: 12px;
     text-align: center;
     background-color: silver;
 }
 
 td{
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
 }
 
@@ -1047,7 +1047,7 @@ font-size: 0.75em !important;
     font-size: 0.85em;
 }
 .largura90 {
-    min-width: 70px !important;
+    min-width: 80px !important;
 }
 .largura130 {
     min-width: 120px !important;

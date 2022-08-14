@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import projetocriadouro.model.Passaro;
 import projetocriadouro.model.StatusReproducao;
+import projetocriadouro.model.exception.AnilhaEncontradaException;
 import projetocriadouro.repository.PassaroRepository;
 import projetocriadouro.service.JasperService;
 import projetocriadouro.service.PassaroService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.io.IOException;
 import java.sql.Connection;
 import java.text.DateFormat;
@@ -127,9 +129,8 @@ public class PassaroController {
     public ModelAndView salvarPassaroFilhote(Passaro passaro, @RequestParam("pesGalador") String pesGalador,
                                              @RequestParam("pesMatriz") String pesMatriz, @RequestParam("nome") String nome,
                                              HttpServletResponse response, HttpServletRequest request) throws Exception {
-
-        ModelAndView passaroSalvo = passaroService.salvar(passaro, pesGalador, pesMatriz, nome);
-        return passaroSalvo;
+            ModelAndView passaroSalvo = passaroService.salvar(passaro, pesGalador, pesMatriz, nome);
+            return passaroSalvo;
     }
 
     @GetMapping("/excluirPassaroFilhote")
@@ -212,6 +213,24 @@ public class PassaroController {
         return andView;
     }
 
+    @PostMapping("/verArvoreFilhoteADM")
+    public ModelAndView verArvoreFilhoteVendaADM(@RequestParam("anilhaFilhote") String anilhaFilhote,
+                                              HttpServletResponse response, HttpServletRequest request) throws Exception {
+        Passaro passaroArvoreFilhote = passaroRepository.findByAnilhaFilhoteVenda(anilhaFilhote);
+        ModelAndView andView = new ModelAndView("cadastro/verArvoreADM");
+        andView.addObject("passaroArvoreFilhote", passaroArvoreFilhote);
+        return andView;
+    }
+
+    @PostMapping("/verArvoreFilhoteFADM")
+    public ModelAndView verArvoreFilhoteVendaFADM(@RequestParam("anilhaFilhote") String anilhaFilhote,
+                                               HttpServletResponse response, HttpServletRequest request) throws Exception {
+        Passaro passaroArvoreFilhote = passaroRepository.findByAnilhaFilhoteVenda(anilhaFilhote);
+        ModelAndView andView = new ModelAndView("cadastro/verArvoreFemeaADM");
+        andView.addObject("passaroArvoreFilhote", passaroArvoreFilhote);
+        return andView;
+    }
+
 
     @ModelAttribute("filhotes")
     public List<Passaro> filhotes() {
@@ -226,6 +245,16 @@ public class PassaroController {
     @ModelAttribute("filhotesFemeas")
     public List<Passaro> filhotesFemeas() {
         return passaroRepository.findByVendaFemea();
+    }
+
+    @ModelAttribute("filhotesMachosADM")
+    public List<Passaro> filhotesMachosADM(){
+        return passaroRepository.findByVendaMachoADM();
+    }
+
+    @ModelAttribute("filhotesFemeasADM")
+    public List<Passaro> filhotesFemeasADM() {
+        return passaroRepository.findByVendaFemeaADM();
     }
 
     @ModelAttribute("plantel")

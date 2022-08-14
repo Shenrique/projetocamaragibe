@@ -65,16 +65,17 @@
     <main id="pagepassaro">
         <div class="container-fluid">
             <div>
-                <form th:action="@{/editarPassaros}" method="get">
+                <form th:action="@{/editarPassaros}" method="POST">
                     <div class="row">
+                        <br>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <select id="nomeEdicao" name="nomeEdicao">
+                                <option value="">Selecione Passaro:</option>
+                                <option th:each="geralAves : ${geralAves}" th:value="${geralAves.nome}" th:text="${geralAves.nome}"></option>
+                            </select>
+                            <input type="submit" value="Bucsar" class="btn btn-secondary" width="100">
+                            <br>
                             <label>Editar - Passaros</label>
-                            <div>
-                                <select id="nomeEdicao" name="nomeEdicao">
-                                    <option value="">Selecione Passaro:</option>
-                                    <option th:each="geralAves : ${geralAves}" th:value="${geralAves.nome}" th:text="${geralAves.nome}"></option>
-                                </select>
-                            </div>
                             <br>
                             <label>Anilha:</label>
                             <div>
@@ -85,12 +86,12 @@
                                 <input name="data_nascimento" autocomplete="off" maxlength="14" placeholder="01/01/2022" id="datanascimento" autofocus="autofocus"></input>
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"></script>
                                 <script>
-                                    new Cleave('#datanascimento', {
-                                    date: true,
-                                    delimiter: '/',
-                                    datePattern: ['d', 'm', 'Y']
-                                    });
-                            </script>
+                                        new Cleave('#datanascimento', {
+                                        date: true,
+                                        delimiter: '/',
+                                        datePattern: ['d', 'm', 'Y']
+                                        });
+                                </script>
                             </div>
                             <div><br>
                                 <label>Sexo</label>
@@ -113,9 +114,9 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                            <table class="table-responsive">
-                                <div id="filhote">
-                                    <style type="text/css">
+                                <table class="table-responsive">
+                                    <div id="filhote" th:each="passaro: ${nomePassaro}">
+                                        <style type="text/css">
                                       *,
                                           *:before,
                                           *:after {
@@ -260,120 +261,121 @@
                                             color: inherit;
                                         }
                                     </style>
-                                    <div id="wrapper">
-                                        <input name="nome" class="label neu"></input>
-                                        <div class="branch">
-                                            <div class="entry">
-                                                <input name="macho1" class="label masc"></input>
-                                                <div class="branch">
-                                                    <div class="entry">
-                                                        <input name="macho21" class="label masc"></input>
-                                                        <div class="branch">
-                                                            <div class="entry">
-                                                                <input name="macho31" class="label masc"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho41" class="label masc"> </input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea41" class="label fem"></input>
+                                        <div id="wrapper">
+                                            <spam contenteditable="true" name="nome" class="label masc" th:text ="${passaro.nome}"></spam>
+                                            <div class="branch">
+                                                <div class="entry">
+                                                    <spam name="macho1" class="label masc" th:text ="${passaro.macho1}"></spam>
+                                                    <div class="branch">
+                                                        <div class="entry">
+                                                            <spam name="macho21" class="label masc" th:text ="${passaro.macho21}"></spam>
+                                                            <div class="branch">
+                                                                <div class="entry">
+                                                                    <spam name="macho31" class="label masc" th:text ="${passaro.macho31}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <span name="macho41" class="label masc" th:text ="${passaro.macho41}"></span>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea41" class="label fem" th:text ="${passaro.femea41}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="entry">
-                                                                <input name="femea31" class="label fem"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho42" class="label masc"></input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea42" class="label fem"></input>
+                                                                <div class="entry">
+                                                                    <spam name="femea31" class="label fem" th:text ="${passaro.femea31}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <spam name="macho42" class="label masc" th:text ="${passaro.macho42}"></spam>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea42" class="label fem" th:text ="${passaro.femea42}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="entry">
-                                                        <input name="femea21" class="label fem"></input>
-                                                        <div class="branch">
-                                                            <div class="entry">
-                                                                <input name="macho32" class="label masc"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho43" class="label masc"></input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea43" class="label fem"></input>
+                                                        <div class="entry">
+                                                            <spam name="femea21" class="label fem" th:text ="${passaro.femea21}"></spam>
+                                                            <div class="branch">
+                                                                <div class="entry">
+                                                                    <spam name="macho32" class="label masc" th:text ="${passaro.macho32}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <spam name="macho43" class="label masc" th:text ="${passaro.macho43}"></spam>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea43" class="label fem" th:text ="${passaro.femea43}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="entry">
-                                                                <input name="femea32" class="label fem"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho44" class="label masc"></input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea44" class="label fem"></input>
+                                                                <div class="entry">
+                                                                    <spam name="femea32" class="label fem" th:text ="${passaro.femea32}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <spam name="macho44" class="label masc" th:text ="${passaro.macho44}"></spam>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea44" class="label fem" th:text ="${passaro.femea44}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="entry">
-                                                <input name="femea1" class="label fem"></input>
-                                                <div class="branch">
-                                                    <div class="entry">
-                                                        <input name="macho22" class="label masc"></input>
-                                                        <div class="branch">
-                                                            <div class="entry">
-                                                                <input name="macho33" class="label masc"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho45" class="label masc"></input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea45" class="label fem"></input>
+                                                <div class="entry">
+                                                    <spam name="femea1" class="label fem" th:text ="${passaro.femea1}"></spam>
+                                                    <div class="branch">
+                                                        <div class="entry">
+                                                            <spam name="macho22" class="label masc" th:text ="${passaro.macho22}"></spam>
+                                                            <div class="branch">
+                                                                <div class="entry">
+                                                                    <spam name="macho33" class="label masc" th:text ="${passaro.macho33}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <spam name="macho45" class="label masc" th:text ="${passaro.macho45}"></spam>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea45" class="label fem" th:text ="${passaro.femea45}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="entry">
-                                                                <input name="femea33" class="label fem"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho46" class="label masc"></input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea46" class="label fem"></input>
+                                                                <div class="entry">
+                                                                    <spam name="femea33" class="label fem" th:text ="${passaro.femea33}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <spam name="macho46" class="label masc" th:text ="${passaro.macho46}"></spam>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea46" class="label fem" th:text ="${passaro.femea46}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="entry">
-                                                        <input name="femea22" class="label fem"></input>
-                                                        <div class="branch">
-                                                            <div class="entry">
-                                                                <input name="macho34" class="label masc"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho47" class="label masc"></input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea47" class="label fem"></input>
+                                                        <div class="entry">
+                                                            <spam name="femea22" class="label fem" th:text ="${passaro.femea22}"></spam>
+                                                            <div class="branch">
+                                                                <div class="entry">
+                                                                    <spam name="macho34" class="label masc" th:text ="${passaro.macho34}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <spam name="macho47" class="label masc" th:text ="${passaro.macho47}"></spam>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea47" class="label fem" th:text ="${passaro.femea47}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="entry">
-                                                                <input name="femea34" class="label fem"></input>
-                                                                <div class="branch">
-                                                                    <div class="entry">
-                                                                        <input name="macho48" class="label masc"></input>
-                                                                    </div>
-                                                                    <div class="entry">
-                                                                        <input name="femea48" class="label fem"></input>
+                                                                <div class="entry">
+                                                                    <spam name="femea34" class="label fem" th:text ="${passaro.femea34}"></spam>
+                                                                    <div class="branch">
+                                                                        <div class="entry">
+                                                                            <spam name="macho48" class="label masc" th:text ="${passaro.macho48}"></spam>
+                                                                        </div>
+                                                                        <div class="entry">
+                                                                            <spam name="femea48" class="label fem" th:text ="${passaro.femea48}"></spam>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -383,9 +385,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </table>
-                        </div>
+                                </table>
+                            </div>
                     </div>
                     <input type="" value="" class="btn btn-secondary" width="100">
                 </form>
