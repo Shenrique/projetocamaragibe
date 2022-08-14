@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 import projetocriadouro.model.Passaro;
 import projetocriadouro.model.StatusReproducao;
-import projetocriadouro.model.exception.AnilhaEncontradaException;
 import projetocriadouro.repository.PassaroRepository;
 
 import java.util.List;
