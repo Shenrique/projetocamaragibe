@@ -23,10 +23,8 @@ public class Passaro {
     @NotNull
     private String sexo;
 
-    @NotNull
     private String venda;
 
-    @NotNull
     private String ocultar;
 
     @Column(name = "status_reproducao")
