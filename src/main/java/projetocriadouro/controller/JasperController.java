@@ -57,6 +57,26 @@ public class JasperController {
 
     }
 
+    @GetMapping("/certificadoplantel")
+    public void exibirRelatorioPlantel(@RequestParam(name="plantelCertificado", required = false) String nome,
+                                  HttpServletResponse response) throws JRException, IOException {
+
+            if(nome.isEmpty()){
+                byte[] bytes = service.exportarArvoreGeralPDF();
+                response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+                response.setHeader("Content-disposition", "inline; filename="+ nome +".pdf");
+                response.getOutputStream().write(bytes);
+            } else {
+                service.adicionandoParamentro("nome", nome);
+                byte[] bytes = service.exportarCertificadoPDF();
+                response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+                response.setHeader("Content-disposition", "inline; filename=" + nome + ".pdf");
+                response.getOutputStream().write(bytes);
+            }
+    }
+
+
+
     @GetMapping("/certificado")
     public void exibirRelatorio09(@RequestParam(name="nomeCertificado", required = false) String nome,
                                   HttpServletResponse response) throws JRException, IOException {
@@ -92,18 +112,6 @@ public class JasperController {
 
     }
 
-    @GetMapping("/certificadoplantel")
-    public void exibirRelatorioPlantel(@RequestParam(name="plantelCertificado", required = false) String nome,
-                                  HttpServletResponse response) throws JRException, IOException {
-
-        service.adicionandoParamentro("nome", nome);
-
-        byte[] bytes = service.exportarCertificadoPDF();
-        response.setContentType(MediaType.APPLICATION_PDF_VALUE);
-        response.setHeader("Content-disposition", "inline; filename="+ nome +".pdf");
-        response.getOutputStream().write(bytes);
-
-    }
 
     @ModelAttribute("filhotes")
         public List<Passaro> filhotes( ){
