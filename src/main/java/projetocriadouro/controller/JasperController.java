@@ -112,6 +112,20 @@ public class JasperController {
 
     }
 
+    @GetMapping("/placaIntervaloNome")
+    public void placaIntervaloNome(@RequestParam(name="dataInicial", required = false) Date dataInicial, @RequestParam(name="dataFinal",  required = false) Date dataFinal,
+                               HttpServletResponse response) throws JRException, IOException, ParseException {
+
+        service.adicionandoParamentro("dataInicial", dataInicial);
+        service.adicionandoParamentro("dataFinal", dataFinal);
+
+        byte[] bytes = service.exportarPlacasComNomePDF();
+        response.setContentType(MediaType.APPLICATION_PDF_VALUE);
+        response.setHeader("Content-disposition", "inline; filename=placaComNome.pdf");
+        response.getOutputStream().write(bytes);
+
+    }
+
 
     @ModelAttribute("filhotes")
         public List<Passaro> filhotes( ){

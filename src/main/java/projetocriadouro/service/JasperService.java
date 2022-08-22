@@ -25,6 +25,7 @@ public class JasperService {
     private static final String JASPER_PREFIXO_CERTIFICADO2 = "arvoreGeral";
     private static final String JASPER_PREFIXO_GALADOR = "relatorioGalador";
     private static final String JASPER_PREFIXO_PLACAS = "etiquetasPlacas";
+    private static final String JASPER_PREFIXO_PLACAS_COM_NOME = "etiquetasPlacas";
     private static final String JASPER_SUFIXO = ".jasper";
 
     @Autowired
@@ -69,6 +70,17 @@ public class JasperService {
         byte[] bytes = null;
         Resource resource = resourceLoader
                 .getResource(JASPER_DIRETORIO.concat(JASPER_PREFIXO_PLACAS).concat(JASPER_SUFIXO));
+        InputStream stream = resource.getInputStream();
+        JasperPrint print = JasperFillManager.fillReport(stream, params, connection);
+        bytes = JasperExportManager.exportReportToPdf(print);
+
+        return bytes;
+    }
+
+    public byte[] exportarPlacasComNomePDF() throws IOException, JRException {
+        byte[] bytes = null;
+        Resource resource = resourceLoader
+                .getResource(JASPER_DIRETORIO.concat(JASPER_PREFIXO_PLACAS_COM_NOME).concat(JASPER_SUFIXO));
         InputStream stream = resource.getInputStream();
         JasperPrint print = JasperFillManager.fillReport(stream, params, connection);
         bytes = JasperExportManager.exportReportToPdf(print);
