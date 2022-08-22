@@ -148,6 +148,7 @@
                     </div>
                     <input type="submit" value="Gerar Placa" class="btn btn-secondary" width="100">
                 </form>
+                <br>
                 <form th:action="@{/placaIntervaloNome}" method="get">
                     <label>Placa - Filhotes Com Nome</label>
                     <br>
@@ -156,7 +157,7 @@
                         <input name="dataInicial" autocomplete="off" maxlength="14" placeholder="MM/dd/yyyy" id="dataInicial2" autofocus="autofocus"></input>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"></script>
                         <script>
-                                new Cleave('#dataInicial', {
+                                new Cleave('#dataInicial2', {
                                 date: true,
                                 delimiter: '/',
                                 datePattern: ['m', 'd', 'Y']
@@ -168,7 +169,7 @@
                         <input name="dataFinal" autocomplete="off" maxlength="14" placeholder="mes/dia/ano" id="dataFinal2" autofocus="autofocus"></input>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.0.2/cleave.min.js"></script>
                         <script>
-                                new Cleave('#dataFinal', {
+                                new Cleave('#dataFinal2', {
                                 date: true,
                                 delimiter: '/',
                                 datePattern: ['m', 'd', 'Y']
