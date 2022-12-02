@@ -73,6 +73,8 @@ public class Passaro {
     private String macho48;
     private String femea48;
 
+    private String descricao;
+
     public Long getCodigo() {
         return codigo;
     }
@@ -375,6 +377,14 @@ public class Passaro {
 
     public void setOcultar(String ocultar) {
         this.ocultar = ocultar;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     @Override
